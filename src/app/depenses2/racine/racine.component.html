@@ -38,9 +38,9 @@
  <h1>Les dépenses</h1>
 
         <div  class="buttonDiv1" style="max-width:10000px;">
-            <mat-grid-list cols="4" rowHeight="200px">
+            <mat-grid-list #grid cols="4" rowHeight="300px">
                 <mat-grid-tile *ngFor="let e of (items)">
-                    <mat-card class="home-card">
+                    <mat-card class="d-card">
                         <mat-card-title>{{e.auteur}}</mat-card-title>
                     <mat-card-subtitle>{{e.date}}</mat-card-subtitle>
                     <mat-card-content>

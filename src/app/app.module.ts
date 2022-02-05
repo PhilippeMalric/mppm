@@ -18,6 +18,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 //Angular material
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     HomePageComponent,
   ],
   imports: [
+    FlexLayoutModule,
     MatProgressBarModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,

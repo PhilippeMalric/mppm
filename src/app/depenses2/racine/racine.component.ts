@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
@@ -9,6 +9,8 @@ import { UserService } from 'src/app/user/user.service';
 import { Depenses2Service, Message } from '../depenses2.service';
 
 import * as saveAs from 'file-saver';
+import { MatGridList } from '@angular/material/grid-list';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-racine',
@@ -22,9 +24,14 @@ export class RacineComponent implements OnInit {
   message = new FormControl('');
   items2: unknown[];
   
+  @ViewChild('grid') grid: MatGridList; 
+  
+  gridByBreakpoint = { xl: 8, lg: 6, md: 4, sm: 2, xs: 1 } 
+
   constructor(private DepensesService:Depenses2Service,
               private afAuth: AngularFireAuth,
-              private userService:UserService
+              private userService:UserService,
+              private observableMedia:  MediaObserver
     ) {
 
 
@@ -46,6 +53,13 @@ export class RacineComponent implements OnInit {
       )
   }
 
+   ngAfterContentInit() { 
+    this.observableMedia.asObservable().pipe(
+    tap(change => {
+      console.log(change);
+      this.grid.cols = this.gridByBreakpoint[change[0].mqAlias];
+    })).subscribe()
+  }
 
   add(){
 
