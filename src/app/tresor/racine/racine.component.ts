@@ -51,10 +51,10 @@ export class RacineComponent implements OnInit {
         return !e.deleted
       }).map((data)=>{
         let fontsize = "48px"
-        if(data['message'].length > 15){
+        if(data['message'].length > 20){
           fontsize = "24px"
         }
-        if(data['message'].length > 30){
+        if(data['message'].length > 40){
           fontsize = "12px"
         }
 

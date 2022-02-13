@@ -42,12 +42,10 @@
             <mat-grid-list #grid cols="4" rowHeight="300px">
                 <mat-grid-tile *ngFor="let e of (items)">
                     <mat-card class="d-card">
-                        <mat-card-title [style.font-size]="e.fontsize" style="max-width: 250px;overflow: auto">{{e.message}}</mat-card-title>
-                        <!-- <mat-card-title>{{e.auteur}}</mat-card-title>-->
-                    <!--<mat-card-subtitle>{{e.date}}</mat-card-subtitle>-->
-                    <mat-card-content>
-                       <!-- <p>{{e.prix}} $</p>-->
-                        <!--<p>{{e.message}}</p>-->
+                        <mat-card-content 
+                            [style.font-size]="e.fontsize" 
+                            style="max-width: 250px;overflow: auto">
+                            {{e.message}}
                         </mat-card-content>
 
                     <mat-card-actions>
