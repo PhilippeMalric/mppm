@@ -50,7 +50,10 @@ export class RacineComponent implements OnInit {
       this.items = data.filter((e:any)=>{
         return !e.deleted
       }).map((data)=>{
-        let fontsize = "24px"
+        let fontsize = "48px"
+        if(data['message'].length > 15){
+          fontsize = "24px"
+        }
         if(data['message'].length > 30){
           fontsize = "12px"
         }
